@@ -32,8 +32,14 @@ const constraints = {
   deviceId: {exact: backDeviceId }
 }
 
-const player = document.getElementById('myVideo');
-navigator.mediaDevices.getUserMedia(constraints)
+
+function start(){
+  const player = document.getElementById('myVideo');
+  navigator.mediaDevices.getUserMedia(constraints)
     .then((stream) => {
      player.srcObject = stream;
     });
+  
+}
+
+start()
