@@ -43,7 +43,7 @@ function start(){
 }
 
 async function cap(){
-  const player = document.getElementById('player');
+  const player = document.getElementById('myVideo');
 
   const constraints = {
     video: true,
