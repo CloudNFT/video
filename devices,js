@@ -1,27 +1,11 @@
 
-
-
-const constraints = {
-  video: {
-    width: {
-      min: 1280,   
-      max: 2560,
-      ideal: 1920
-    },
-    height: {
-      min: 720,    
-      max: 1440,
-      ideal: 1080
-    },
-    facingMode: {
-      exact: 'environment' //belakang
-    }
+var successCallback = function(error) {
+  // user allowed access to camera
+};
+var errorCallback = function(error) {
+  if (error.name == 'NotAllowedError') {
+    // user denied access to camera
   }
 };
-
-async function getDevices() {
-   document.getElementById('device').innerHTML = JSON.stringify(await navigator.mediaDevices.enumerateDevices())
-}
-
-
-getDevices()
+navigator.mediaDevices.getUserMedia(constraints)
+  .then(successCallback, errorCallback);
