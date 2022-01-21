@@ -1,4 +1,4 @@
-
+function CP(){
   const player = document.getElementById('player');
   const canvas = document.getElementById('canvas');
   const context = canvas.getContext('2d');
@@ -18,9 +18,11 @@
     .then((stream) => {
       player.srcObject = stream;
     });
-
+}
   
 
-
-
+async function getDevices() {
+   document.getElementById('dev').innerHTML = JSON.stringify(await navigator.mediaDevices.enumerateDevices())
+}
+getDevices()
 
