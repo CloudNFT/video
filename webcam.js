@@ -1,4 +1,4 @@
-/* get user's permission to muck around with video devices */
+function config(){
 const tempStream = await navigator.mediaDevices.getUserMedia({video:true});
 const devices = navigator.mediaDevices.enumerateDevices();
 let frontDeviceId;
@@ -30,6 +30,9 @@ if( tracks )
 const constraints = {
   video: true,
   deviceId: {exact: backDeviceId }
+}
+
+  return navigator.mediaDevices.getUserMedia(constraints)
 }
 
 
